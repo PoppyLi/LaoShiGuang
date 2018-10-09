@@ -1,0 +1,65 @@
+<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=xunren:bangding&pluginop=add">
+<input type="hidden" name="formhash" value="{FORMHASH}" />
+<p class="tbmu">游戏信息</p>
+<table cellspacing="0" cellpadding="0" class="tfm" style="table-layout:fixed;margin-top:10px;">
+	<tbody>
+		<tr>
+			<td class="mtm pns">
+				日期时间：<input name="datetime" id="datetime" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+			<td class="mtm pns">
+				游戏名称：<input name="gamename" id="gamename" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td class="mtm pns">
+				服务器名：<input name="server" id="server" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+			<td class="mtm pns">
+				角色名称：<input name="gameuser" id="gameuser" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td class="mtm pns">
+				公会帮派：<input name="group" id="group" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+			<td class="mtm pns">
+				游戏好友：<input name="friend" id="friend" type="text" class="px vm" value="$username" style="width:100px" tabindex="1" />&nbsp;
+			</td>
+		</tr>
+		<tr><td class="mtm pns" colspan="2">
+				游戏寄语：<textarea name="text" id="text" class="pt" rows="3" cols="40" tabindex="1"></textarea>&nbsp;
+		</td></tr>
+		</td></tr>
+		<tr><td class="mtm pns">
+			<button type="submit" name="adduser" class="pn vm" value="yes" ><span>提交</span></button>
+		</td></tr>
+	</tbody>
+</table>
+</form>
+
+
+<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=xunren:bangding&pluginop=update">
+<input type="hidden" name="formhash" value="{FORMHASH}" />
+<!--{if $repeatusers}-->
+	<table cellspacing="0" cellpadding="0" class="dt mtm">
+		<thead class="alt">
+			<tr><td width="40"></td><td width="100">日期时间</td><td width="100">游戏名称</td><td width="100">服务器名</td></td><td width="100">角色名称</td><td width="100">公会帮派</td><td width="100">游戏好友</td><td>游戏寄语</td></tr>
+		</thead>
+		<!--{loop $repeatusers $user}-->
+		<tr>
+			<td><input name="delete[]" type="checkbox" class="pc" value="$user[xh_id]" /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_date]]" class="px" value="$user[xh_date]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_name]" class="px" value="$user[xh_name]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_server]" class="px" value="$user[xh_server]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_user]" class="px" value="$user[xh_user]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_group]" class="px" value="$user[xh_group]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_friend]" class="px" value="$user[xh_friend]" style="width:100px" tabindex="1"  /></td>
+			<td><input name="comment[{$user[xh_id]}][xh_text]" class="px" value="$user[xh_text]" style="width:200px" tabindex="1"  /></td>
+		</tr>
+		<!--{/loop}-->
+		<tr class="bw0_all"><td><label for="chkall"><input class="pc" type="checkbox" id="chkall" name="chkall" onclick="checkall(this.form);" />删</label></td>
+		<td class="mtm pns"><button type="submit" class="pn" name="updateuser" value="yes" ><span>更新</span></button></td></tr>
+	</table>
+<!--{/if}-->
+</form>

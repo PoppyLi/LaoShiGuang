@@ -1,0 +1,92 @@
+<!--{template common/header}-->
+
+<div class="bm bw0">
+	<ul class="tb cl">
+		<!--{if $action == 'list1' || $action == ''}--><li class="a"><!--{else}--><li><!--{/if}--><a href="plugin.php?id=xunren:index&action=list1">登记列表</a></li>
+		<!--{if $action == 'list2'}--><li class="a"><!--{else}--><li><!--{/if}--><a href="plugin.php?id=xunren:index&action=list2">寻人列表</a></li>
+	</ul>
+</div>
+
+<!--{if $action == 'list1' || $action == ''}-->
+<div class="bm bw0">
+    <form action="plugin.php?id=xunren:index&action=list1&op=search1" method="post">
+        <input type="text" id="s1name" name="s1name" value="$cks1name" size="40" maxlength="40" class="px"/>
+        <select name="s1where">
+        	<option value="xserver" <!--{if $cks1where == 'xserver' || $cks1where == ''}-->selected="selected"<!--{/if}-->>服务器</option>
+        	<option value="xuser" <!--{if $cks1where == 'xuser'}-->selected="selected"<!--{/if}-->>角色名</option>
+        	<option value="xgroup" <!--{if $cks1where == 'xgroup'}-->selected="selected"<!--{/if}-->>公会名</option>
+        </select>
+    	<button type="submit" class="pn"><strong>查询</strong></button>
+    	<a href="home.php?mod=spacecp&ac=plugin&id=xunren:bangding"><strong>我要登记</strong></a>
+    </form>
+</div>
+
+<div class="bm bw0">
+	<table cellspacing="0" cellpadding="0" class="dt mtm">
+		<thead class="alt">
+			<tr>
+				<td width="100">日期时间</td>
+				<td width="100">游戏名称</td>
+				<td width="100">服务器名</td>
+				<td width="100">角色名称</td>
+				<td width="100">公会帮派</td>
+				<td width="100">游戏好友</td>
+				<td>游戏寄语</td>
+			</tr>
+		</thead>
+		<!--{loop $list1 $user}-->
+		<tr>
+			<td>{$user[xh_date]}</td>
+			<td>$user[xh_name]</td>
+			<td>$user[xh_server]</td>
+			<td>$user[xh_user]</td>
+			<td>$user[xh_group]</td>
+			<td>$user[xh_friend]</td>
+			<td>$user[xh_text]</td>
+		</tr>
+		<!--{/loop}-->
+	</table>
+</div>
+<!--{elseif $action == 'list2'}-->
+<div class="bm bw0">
+    <form action="plugin.php?id=xunren:index&action=list2&op=search2" method="post">
+        <input type="text" id="truename" name="truename" value="$cktruename" size="40" maxlength="40" class="px"/>
+        <select name="status">
+        	<option value="1" selected="selected">服务器</option>
+        	<option value="2">角色名</option>
+        	<option value="3">公会名</option>
+        </select>
+    	<button type="submit" class="pn"><strong>查询</strong></button>
+    </form>
+</div>
+
+<div class="bm bw0">
+	<table cellspacing="0" cellpadding="0" class="dt mtm">
+		<thead class="alt">
+			<tr>
+				<td width="100">日期时间</td>
+				<td width="100">游戏名称</td>
+				<td width="100">服务器名</td>
+				<td width="100">角色名称</td>
+				<td width="100">公会帮派</td>
+				<td width="100">游戏好友</td>
+				<td>游戏寄语</td>
+			</tr>
+		</thead>
+		<!--{loop $list2 $user}-->
+		<tr>
+			<td>{$user[xh_date]}</td>
+			<td>$user[xh_name]</td>
+			<td>$user[xh_server]</td>
+			<td>$user[xh_user]</td>
+			<td>$user[xh_group]</td>
+			<td>$user[xh_friend]</td>
+			<td>$user[xh_text]</td>
+		</tr>
+		<!--{/loop}-->
+	</table>
+</div>
+<!--{/if}-->
+
+<br>
+<!--{template common/footer}-->
