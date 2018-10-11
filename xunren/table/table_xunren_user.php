@@ -16,8 +16,8 @@ class table_xunren_user extends discuz_table
 	}
 
 
-	public function fetch_all_by_uid($uid) {
-		return DB::fetch_all("SELECT * FROM %t WHERE uid=%d and type=%d", array($this->_table, $uid, 1));
+	public function fetch_all_by_uid($uid,$type) {
+		return DB::fetch_all("SELECT * FROM %t WHERE uid=%d and type=%d", array($this->_table, $uid, $type));
 	}
 
 	public function fetch_all_by_type($type) {

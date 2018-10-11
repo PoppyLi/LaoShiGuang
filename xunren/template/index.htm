@@ -45,18 +45,22 @@
 			<td>$user[xh_text]</td>
 		</tr>
 		<!--{/loop}-->
+		<tr>
+			<td colspan="7"><div class="pgs cl">{$multi}</div> </td>
+		</tr>		
 	</table>
 </div>
 <!--{elseif $action == 'list2'}-->
 <div class="bm bw0">
     <form action="plugin.php?id=xunren:index&action=list2&op=search2" method="post">
-        <input type="text" id="truename" name="truename" value="$cktruename" size="40" maxlength="40" class="px"/>
-        <select name="status">
-        	<option value="1" selected="selected">服务器</option>
-        	<option value="2">角色名</option>
-        	<option value="3">公会名</option>
+        <input type="text" id="s2name" name="s2name" value="$cks2name" size="40" maxlength="40" class="px"/>
+        <select name="s2where">
+        	<option value="xserver" <!--{if $cks2where == 'xserver' || $cks1where == ''}-->selected="selected"<!--{/if}-->>服务器</option>
+        	<option value="xuser" <!--{if $cks2where == 'xuser'}-->selected="selected"<!--{/if}-->>角色名</option>
+        	<option value="xgroup" <!--{if $cks2where == 'xgroup'}-->selected="selected"<!--{/if}-->>公会名</option>
         </select>
     	<button type="submit" class="pn"><strong>查询</strong></button>
+    	<a href="home.php?mod=spacecp&ac=plugin&id=xunren:fabuxunren"><strong>我要发布</strong></a>
     </form>
 </div>
 
