@@ -35,6 +35,11 @@ class table_xunren_user extends discuz_table
 	public function update_comment_by_uid_xid($uid, $xid, $xname, $xuser, $xdate, $xserver, $xgroup, $xfriend, $xtext) {
 		DB::query("UPDATE %t SET xname=%s,xuser=%s,xdate=%s,xserver=%s,xgroup=%s,xfriend=%s,xtext=%s WHERE uid=%d AND xid=%d", array($this->_table, $xname, $xuser, $xdate, $xserver, $xgroup, $xfriend, $xtext, $uid, $xid));
 	}
+
+	public function fetch_by_xid($xid) {
+		return DB::fetch_first("SELECT * FROM %t WHERE xid=%d", array($this->_table, $xid));
+	}
+
 }
 
 ?>

@@ -35,14 +35,14 @@
 			</tr>
 		</thead>
 		<!--{loop $list1 $user}-->
-		<tr>
-			<td>{$user[xh_date]}</td>
-			<td>$user[xh_name]</td>
-			<td>$user[xh_server]</td>
-			<td>$user[xh_user]</td>
-			<td>$user[xh_group]</td>
-			<td>$user[xh_friend]</td>
-			<td>$user[xh_text]</td>
+		<tr onclick="javascript:window.open('plugin.php?id=xunren:xiangxi&aid={$user[xh_id]}');" style="cursor: pointer;">
+			<td><a href="plugin.php?id=xunren:xiangxi&aid={$user[xh_id]}">{$user[xh_date]}</a></td>
+			<td>{$user[xh_name]}</td>
+			<td>{$user[xh_server]}</td>
+			<td>{$user[xh_user]}</td>
+			<td>{$user[xh_group]}</td>
+			<td>{$user[xh_friend]}</td>
+			<td>{$user[xh_text]}</td>
 		</tr>
 		<!--{/loop}-->
 		<tr>
@@ -78,14 +78,14 @@
 			</tr>
 		</thead>
 		<!--{loop $list2 $user}-->
-		<tr>
+		<tr onclick="javascript:window.open('plugin.php?id=xunren:xiangxi&aid={$user[xh_id]}');" style="cursor: pointer;">
 			<td>{$user[xh_date]}</td>
-			<td>$user[xh_name]</td>
-			<td>$user[xh_server]</td>
-			<td>$user[xh_user]</td>
-			<td>$user[xh_group]</td>
-			<td>$user[xh_friend]</td>
-			<td>$user[xh_text]</td>
+			<td>{$user[xh_name]}</td>
+			<td>{$user[xh_server]}</td>
+			<td>{$user[xh_user]}</td>
+			<td>{$user[xh_group]}</td>
+			<td>{$user[xh_friend]}</td>
+			<td>{$user[xh_text]}</td>
 		</tr>
 		<!--{/loop}-->
 	</table>
