@@ -30,8 +30,8 @@
 				<td width="100">服务器名</td>
 				<td width="100">角色名称</td>
 				<td width="100">公会帮派</td>
-				<td width="100">游戏好友</td>
-				<td>游戏寄语</td>
+				<td width="100">游戏好友{$start}</td>
+				<td>游戏寄语{$count}</td>
 			</tr>
 		</thead>
 		<!--{loop $list1 $user}-->
@@ -46,7 +46,7 @@
 		</tr>
 		<!--{/loop}-->
 		<tr>
-			<td colspan="7"><div class="pgs cl">{$multi}</div> </td>
+			<td colspan="7"><div class="pgs cl"><!--{if $multipage1}-->$multipage1<!--{/if}--></div> </td>
 		</tr>		
 	</table>
 </div>
@@ -88,6 +88,9 @@
 			<td>{$user[xh_text]}</td>
 		</tr>
 		<!--{/loop}-->
+		<tr>
+			<td colspan="7"><div class="pgs cl"><!--{if $multipage2}-->$multipage2<!--{/if}--></div> </td>
+		</tr>	
 	</table>
 </div>
 <!--{/if}-->

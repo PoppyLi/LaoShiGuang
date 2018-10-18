@@ -40,6 +40,29 @@ class table_xunren_user extends discuz_table
 		return DB::fetch_first("SELECT * FROM %t WHERE xid=%d", array($this->_table, $xid));
 	}
 
+	public function fetch_type_count($type) {
+		return DB::result_first("SELECT count(*) FROM %t WHERE type=%d", array($this->_table, $type));
+	}
+
+	public function fetch_limt_type($type,$start,$perpage) {
+		return DB::fetch_all("SELECT * FROM %t WHERE type=%d".DB::limit($start, $perpage), array($this->_table, $type));
+	}
+
+	public function fetch_where_count($type, $where, $value) {
+		if(!empty($where) && !empty($value)){
+			return DB::result_first("SELECT count(*) FROM %t WHERE type=%d and $where LIKE %s", array($this->_table, $type, '%'.$value.'%'));
+		}else{
+			return DB::result_first("SELECT count(*) FROM %t WHERE type=%d", array($this->_table, $type));
+		}
+	}
+
+	public function fetch_limt_value($type, $where, $value, $start, $perpage) {
+		if(!empty($where) && !empty($value)){
+			return DB::fetch_all("SELECT * FROM %t WHERE type=%d and $where LIKE %s".DB::limit($start, $perpage), array($this->_table, $type, '%'.$value.'%'));
+		}else{
+			return DB::fetch_all("SELECT * FROM %t WHERE type=%d".DB::limit($start, $perpage), array($this->_table, $type));
+		}
+	}
 }
 
 ?>
